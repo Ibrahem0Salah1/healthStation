@@ -1,0 +1,21 @@
+{
+    "name": "bask-demo",
+    "version": "0.0.0",
+    "private": true,
+    "packageManager": "pnpm@9.15.9",
+    "engines": {
+        "node": ">=20"
+    },
+    "scripts": {
+        "typecheck": "pnpm -r typecheck",
+        "dev": "pnpm --filter @repo/web dev",
+        "build": "pnpm --filter @repo/web build",
+        "db:push": "pnpm --filter @repo/database db:push",
+        "db:studio": "pnpm --filter @repo/database db:studio",
+        "seed": "pnpm --filter @repo/database seed"
+    },
+    "devDependencies": {
+        "@types/node": "^22.10.5",
+        "typescript": "^5.7.3"
+    }
+}

@@ -1,0 +1,31 @@
+# dependencies
+node_modules/
+
+# build output
+.next/
+out/
+dist/
+*.tsbuildinfo
+
+# environment — NEVER commit these
+.env
+.env.local
+.env*.local
+
+# local demo artifact — live session cookie
+cookie.txt
+
+# database
+*.db
+*.sqlite
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

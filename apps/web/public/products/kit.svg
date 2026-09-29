@@ -1,0 +1,7 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="placeholder">
+  <rect width="400" height="400" fill="#FCE7F3"/>
+  <rect x="130" y="110" width="140" height="180" rx="18" fill="#fff" opacity="0.85"/>
+  <rect x="130" y="110" width="140" height="60" rx="18" fill="#BE185D" opacity="0.25"/>
+  <text x="200" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="600" fill="#BE185D">kit</text>
+  <text x="200" y="245" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#BE185D" opacity="0.6">placeholder</text>
+</svg>

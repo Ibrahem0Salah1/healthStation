@@ -1,0 +1,167 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-surface-dark: var(--surface-dark);
+  --color-pill: var(--pill);
+  --color-pill-foreground: var(--pill-foreground);
+  --color-pill-chip: var(--pill-chip);
+
+  /* shadcn/ui tokens.
+     components/ui/* reference --primary, --input, --ring, --secondary and
+     --destructive. Tailwind v4 emits NO class for an undeclared token, so
+     `bg-primary` silently renders as "no background at all" — it is a
+     fail-quiet bug, not a loud one. These alias onto the design tokens above
+     so owned shadcn source inherits the landing page's palette. */
+  --color-primary: var(--foreground);
+  --color-primary-foreground: var(--background);
+  --color-secondary: var(--muted);
+  --color-secondary-foreground: var(--foreground);
+  --color-destructive: oklch(0.55 0.19 25);
+  --color-input: var(--border);
+  --color-ring: var(--accent);
+}
+
+:root {
+  --radius: 0.875rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.16 0.01 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.16 0.01 260);
+  --muted: oklch(0.97 0.005 260);
+  --muted-foreground: oklch(0.62 0.01 260);
+  --border: oklch(0.92 0.005 260);
+  --accent: oklch(0.55 0.05 260);
+  --accent-foreground: oklch(0.16 0.01 260);
+  --surface-dark: oklch(0.16 0.01 260);
+  --pill: oklch(0.97 0.005 260);
+  --pill-foreground: oklch(0.16 0.01 260);
+  --pill-chip: oklch(1 0 0);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-feature-settings: "ss01", "cv11";
+  }
+}
+
+.eyebrow-bg { background: rgba(192,192,192,0.17); }
+
+.mesh-showcase {
+  position: relative;
+  background-color: oklch(0.97 0.004 260);
+  background-image:
+    radial-gradient(50% 85% at 90% 45%, rgba(180, 195, 235, 0.35) 0%, rgba(180, 195, 235, 0) 65%),
+    radial-gradient(40% 70% at 75% 55%, rgba(210, 200, 235, 0.25) 0%, rgba(210, 200, 235, 0) 60%),
+    radial-gradient(55% 70% at 55% 50%, rgba(230, 215, 180, 0.20) 0%, rgba(230, 215, 180, 0) 60%),
+    radial-gradient(60% 75% at 35% 55%, rgba(195, 215, 205, 0.20) 0%, rgba(195, 215, 205, 0) 55%),
+    linear-gradient(180deg, oklch(0.985 0.003 260) 0%, oklch(0.96 0.005 260) 100%);
+  background-size: 100% 100%;
+  transform: translateZ(0);
+}
+.mesh-showcase::before {
+  content: "";
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: repeating-linear-gradient(
+    -30deg,
+    rgba(255,255,255,0) 0px, rgba(255,255,255,0) 240px,
+    rgba(255,255,255,0.04) 340px, rgba(255,255,255,0.08) 380px, rgba(255,255,255,0.04) 420px,
+    rgba(255,255,255,0) 520px, rgba(255,255,255,0) 820px
+  );
+  background-size: 200% 200%;
+  mix-blend-mode: overlay;
+  border-radius: inherit;
+}
+.mesh-showcase > * { position: relative; z-index: 1; }
+
+.star { color: oklch(0.55 0.05 260); }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+}
+
+@keyframes dotPop {
+  from { opacity: 0; transform: scale(0.2); }
+  to   { opacity: 0.36; transform: scale(1); }
+}
+.dot-pop {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: dotPop 0.35s ease-out forwards;
+}
+
+.mesh-intelligence {
+  position: relative;
+  background-color: oklch(0.97 0.004 260);
+  background-image:
+    radial-gradient(55% 65% at 25% 35%, rgba(180, 195, 235, 0.25) 0%, rgba(180, 195, 235, 0) 55%),
+    radial-gradient(45% 55% at 75% 45%, rgba(210, 200, 235, 0.20) 0%, rgba(210, 200, 235, 0) 50%),
+    radial-gradient(50% 60% at 50% 80%, rgba(230, 215, 180, 0.15) 0%, rgba(230, 215, 180, 0) 50%),
+    linear-gradient(180deg, oklch(0.985 0.003 260) 0%, oklch(0.96 0.005 260) 100%);
+  background-size: 100% 100%;
+  transform: translateZ(0);
+}
+.mesh-intelligence > * { position: relative; z-index: 1; }
+
+.mesh-cta {
+  position: relative;
+  background-color: oklch(0.97 0.004 260);
+  background-image:
+    radial-gradient(55% 75% at 50% 50%, rgba(230, 215, 180, 0.25) 0%, rgba(230, 215, 180, 0) 60%),
+    radial-gradient(45% 60% at 25% 75%, rgba(180, 195, 235, 0.15) 0%, rgba(180, 195, 235, 0) 50%),
+    radial-gradient(40% 50% at 75% 35%, rgba(210, 200, 235, 0.15) 0%, rgba(210, 200, 235, 0) 45%),
+    linear-gradient(180deg, oklch(0.985 0.003 260) 0%, oklch(0.96 0.005 260) 100%);
+  background-size: 100% 100%;
+  transform: translateZ(0);
+}
+.mesh-cta > * { position: relative; z-index: 1; }
+
+.glass-node {
+  background: linear-gradient(164deg, rgba(255,255,255,0.06) 14.62%, rgba(255,255,255,0.40) 85.2%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.34);
+}
+
+.floating-stat {
+  background: linear-gradient(164deg, rgba(255,255,255,0.05) 14.62%, rgba(255,255,255,0.30) 85.2%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.20);
+}
+
