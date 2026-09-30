@@ -1,8 +1,7 @@
-"use client";
-
-import { m } from "motion/react";
 import { Check, Store } from "lucide-react";
 import Link from "next/link";
+
+import { Reveal } from "../reveal";
 
 const keyFeatures = [
   { label: "Tenant Isolation (RLS / Scoped)", active: false },
@@ -15,28 +14,15 @@ const keyFeatures = [
 export default function Showcase() {
   return (
     <section id="architecture" className="mx-auto max-w-[1400px] px-6 md:px-10 mt-14">
-      <m.div
+      <Reveal
+        animation="reveal-up-lg"
         className="mesh-showcase rounded-[28px] overflow-hidden p-5 md:p-7 border border-black/5"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{
-          duration: 0.6,
-          ease: [0.25, 1, 0.5, 1],
-        }}
       >
         <div className="grid md:grid-cols-2 gap-5">
           {/* LEFT INNER CARD */}
-          <m.div
+          <Reveal
             className="relative min-h-[380px] rounded-[22px] p-6 md:p-7 text-white flex flex-col justify-between overflow-hidden shadow-xl"
             style={{ backgroundColor: "#141416" }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.5,
-              ease: [0.16, 1, 0.3, 1],
-            }}
           >
             <div>
               <div className="flex items-center justify-between">
@@ -87,19 +73,13 @@ export default function Showcase() {
                 </div>
               ))}
             </div>
-          </m.div>
+          </Reveal>
 
           {/* RIGHT INNER CARD */}
-          <m.div
+          <Reveal
+            animation="reveal-up"
+            delay={0.1}
             className="relative min-h-[380px] rounded-[22px] p-6 md:p-7 bg-white flex flex-col justify-between shadow-sm border border-border/60"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.5,
-              ease: [0.16, 1, 0.3, 1],
-              delay: 0.1,
-            }}
           >
             <div>
               <div className="flex items-start justify-between gap-4">
@@ -160,7 +140,7 @@ export default function Showcase() {
                 </Link>
               </div>
             </div>
-          </m.div>
+          </Reveal>
         </div>
 
         {/* STACK TICKER ROW */}
@@ -177,7 +157,7 @@ export default function Showcase() {
             <span className="px-3 py-1 rounded-full bg-white border border-border shadow-2xs">TypeScript</span>
           </div>
         </div>
-      </m.div>
+      </Reveal>
     </section>
   );
 }

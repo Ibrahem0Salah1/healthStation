@@ -76,6 +76,58 @@
 
 .eyebrow-bg { background: rgba(192,192,192,0.17); }
 
+/* ─ Landing-page entrance / reveal animations ─────────────────────────────
+   Executed purely in CSS so the SSG'd HTML can ship every element fully
+   visible (good for crawlers, no-JS and first paint) while JavaScript
+   hydrates. `backwards` fill holds the `from` keyframe during `animation-delay`
+   only, so no lingering inline transform can fight hover transitions. */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translate3d(0, 20px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes reveal-up-sm {
+  from { opacity: 0; transform: translate3d(0, 15px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes reveal-up-xs {
+  from { opacity: 0; transform: translate3d(0, 10px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes reveal-up-lg {
+  from { opacity: 0; transform: translate3d(0, 30px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes reveal-stamp {
+  from { opacity: 0; transform: translate3d(0, 25px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes reveal-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes reveal-pop {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes reveal-scale {
+  from { transform: scale(0); }
+  to   { transform: scale(1); }
+}
+@keyframes reveal-letter {
+  from { transform: translate3d(0, 110%, 0); }
+  to   { transform: none; }
+}
+
+.anim-reveal-up      { animation: reveal-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards; }
+.anim-reveal-up-sm   { animation: reveal-up-sm 0.4s cubic-bezier(0.16, 1, 0.3, 1) backwards; }
+.anim-reveal-up-xs   { animation: reveal-up-xs 0.35s cubic-bezier(0.16, 1, 0.3, 1) backwards; }
+.anim-reveal-up-lg   { animation: reveal-up-lg 0.6s cubic-bezier(0.25, 1, 0.5, 1) backwards; }
+.anim-reveal-stamp   { animation: reveal-stamp 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards; }
+.anim-reveal-fade    { animation: reveal-fade 0.4s ease-out backwards; }
+.anim-reveal-pop     { animation: reveal-pop 0.35s cubic-bezier(0.16, 1, 0.3, 1) backwards; }
+.anim-reveal-scale   { animation: reveal-scale 0.35s cubic-bezier(0.16, 1, 0.3, 1) backwards; }
+.anim-reveal-letter  { animation: reveal-letter 0.4s cubic-bezier(0.25, 1, 0.5, 1) backwards; }
+
 .mesh-showcase {
   position: relative;
   background-color: oklch(0.97 0.004 260);

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter_Tight } from "next/font/google";
 import "./globals.css";
-import { TRPCProvider } from "./provider";
+
 const interTight = Inter_Tight({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -21,12 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${interTight.variable} antialiased`}>
-        <TRPCProvider>
-             {children}
-        </TRPCProvider>
-       
-      </body>
+      <body className={`${interTight.variable} antialiased`}>{children}</body>
     </html>
   );
 }

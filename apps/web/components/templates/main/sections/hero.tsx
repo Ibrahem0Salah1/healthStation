@@ -1,17 +1,12 @@
-"use client";
-
-import { m } from "motion/react";
 import { ArrowRight, Sparkles, Building2 } from "lucide-react";
 import Link from "next/link";
 
 export default function Hero() {
   return (
     <section id="overview" className="mx-auto max-w-[1400px] px-6 md:px-10 pt-14 md:pt-20 text-center">
-      <m.div
-        className="inline-flex items-center gap-[10px] rounded-[8px] px-[12px] py-[5px] eyebrow-bg border border-black/5"
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      <div
+        className="anim-reveal-up-sm inline-flex items-center gap-[10px] rounded-[8px] px-[12px] py-[5px] eyebrow-bg border border-black/5"
+        style={{ animationDelay: "0s" }}
       >
         <span className="inline-flex items-center justify-center w-[24px] h-[22px] rounded-[4px] bg-white text-foreground shadow-xs">
           <Sparkles className="w-3.5 h-3.5 text-accent" />
@@ -19,13 +14,11 @@ export default function Hero() {
         <span className="text-[13px] font-medium text-foreground">
           Multi-Tenant Telehealth &amp; Clinic Storefront Platform
         </span>
-      </m.div>
+      </div>
 
-      <m.h1
-        className="mx-auto max-w-[1100px] mt-6 font-medium leading-[1.08] tracking-[-0.035em] text-[48px] md:text-[68px] text-foreground"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+      <h1
+        className="anim-reveal-up mx-auto max-w-[1100px] mt-6 font-medium leading-[1.08] tracking-[-0.035em] text-[48px] md:text-[68px] text-foreground"
+        style={{ animationDelay: "0.1s" }}
       >
         <div>Launch your clinic storefront</div>
         <div className="flex items-center justify-center flex-wrap gap-x-3 gap-y-2">
@@ -86,23 +79,19 @@ export default function Hero() {
           </span>
           <span className="text-foreground/30">DevOps overhead</span>
         </div>
-      </m.h1>
+      </h1>
 
-      <m.p
-        className="mx-auto mt-6 max-w-[680px] text-[16px] leading-[1.6] text-muted-foreground"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+      <p
+        className="anim-reveal-up mx-auto mt-6 max-w-[680px] text-[16px] leading-[1.6] text-muted-foreground"
+        style={{ animationDelay: "0.2s" }}
       >
         One unified engine, infinite branded telehealth storefronts. Get an isolated clinic
         sub-path, custom theme, medical product catalog, and dedicated owner admin portal in under 2 minutes.
-      </m.p>
+      </p>
 
-      <m.div
-        className="mt-8 flex flex-wrap items-center justify-center gap-3.5"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+      <div
+        className="anim-reveal-up mt-8 flex flex-wrap items-center justify-center gap-3.5"
+        style={{ animationDelay: "0.3s" }}
       >
         <Link
           href="/signup"
@@ -119,13 +108,11 @@ export default function Hero() {
           <Building2 className="w-4 h-4 text-muted-foreground" />
           <span>Clinic Owner Login</span>
         </Link>
-      </m.div>
+      </div>
 
-      <m.div
-        className="mt-8 flex flex-wrap items-center justify-center gap-2 text-[12px] text-muted-foreground"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.4, delay: 0.4 }}
+      <div
+        className="anim-reveal-fade mt-8 flex flex-wrap items-center justify-center gap-2 text-[12px] text-muted-foreground"
+        style={{ animationDelay: "0.4s" }}
       >
         <span className="text-foreground/60 font-medium">Explore live demo clinics:</span>
         <Link
@@ -142,7 +129,7 @@ export default function Hero() {
           <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
           /alexandria-pediatrics
         </Link>
-      </m.div>
+      </div>
     </section>
   );
 }

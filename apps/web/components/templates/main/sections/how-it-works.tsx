@@ -1,7 +1,6 @@
-"use client";
-
-import { m } from "motion/react";
 import { UserPlus, Palette, Rocket } from "lucide-react";
+
+import { Reveal } from "../reveal";
 
 const steps = [
   {
@@ -28,26 +27,22 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="py-24 md:py-28 px-6 md:px-10 mx-auto max-w-[1400px]">
       <div className="max-w-5xl mx-auto">
-        <m.p
+        <Reveal
+          as="p"
+          animation="reveal-up-sm"
           className="text-center text-[12px] font-medium tracking-[0.18em] uppercase text-muted-foreground mb-3"
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
         >
           Three Simple Steps
-        </m.p>
-        <m.h2
+        </Reveal>
+        <Reveal
+          as="h2"
+          delay={0.05}
           className="text-center text-[36px] md:text-[52px] font-medium tracking-[-0.03em] leading-[1.08] text-foreground"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.05 }}
         >
           From tenant sign-up
           <br />
           <span className="text-muted-foreground/40">to live clinic storefront.</span>
-        </m.h2>
+        </Reveal>
       </div>
 
       <div className="relative mt-16 md:mt-20 max-w-4xl mx-auto">
@@ -56,17 +51,10 @@ export default function HowItWorks() {
         {steps.map((step, i) => {
           const Icon = step.icon;
           return (
-            <m.div
+            <Reveal
               key={step.num}
+              delay={i * 0.1}
               className="relative flex items-start gap-6 md:gap-8 pb-14 md:pb-16 last:pb-0"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.45,
-                ease: [0.16, 1, 0.3, 1],
-                delay: i * 0.1,
-              }}
             >
               <div className="relative z-10 flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center bg-background border border-border/60 shadow-xs">
                 <Icon className="w-5 h-5 text-accent" />
@@ -89,19 +77,18 @@ export default function HowItWorks() {
                   {step.desc}
                 </p>
               </div>
-            </m.div>
+            </Reveal>
           );
         })}
 
-        <m.p
+        <Reveal
+          as="p"
+          animation="reveal-fade"
+          delay={0.3}
           className="mt-6 text-center text-[13px] text-muted-foreground/60 italic"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.3 }}
         >
           One shared monorepo codebase. Unlimited independent clinic storefronts.
-        </m.p>
+        </Reveal>
       </div>
     </section>
   );

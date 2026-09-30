@@ -1,6 +1,4 @@
-"use client";
-
-import { m } from "motion/react";
+import { Reveal } from "../reveal";
 
 const testimonials = [
   {
@@ -43,39 +41,25 @@ export default function Testimonials() {
   return (
     <section id="clinics" className="py-24 md:py-28 px-6 md:px-10 mx-auto max-w-[1400px] overflow-hidden">
       <div className="max-w-5xl mx-auto">
-        <m.p
+        <Reveal
+          as="p"
+          animation="reveal-up-sm"
           className="text-center text-[12px] font-medium tracking-[0.18em] uppercase text-muted-foreground mb-3"
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
         >
           Clinic Owner Voices
-        </m.p>
-        <m.h2
+        </Reveal>
+        <Reveal
+          as="h2"
+          delay={0.05}
           className="text-center text-[36px] md:text-[52px] font-medium tracking-[-0.03em] leading-[1.08] text-foreground"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.05 }}
         >
           Built for clinic founders.
-        </m.h2>
+        </Reveal>
       </div>
 
       <div className="mt-12 md:mt-16 max-w-3xl mx-auto space-y-12 md:space-y-16">
         {testimonials.map((t, i) => (
-          <m.div
-            key={t.name}
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.5,
-              ease: [0.16, 1, 0.3, 1],
-              delay: i * 0.1,
-            }}
-          >
+          <Reveal key={t.name} animation="reveal-stamp" delay={i * 0.1}>
             <svg
               width="28"
               height="22"
@@ -110,7 +94,7 @@ export default function Testimonials() {
             {i < testimonials.length - 1 && (
               <div className="mt-12 md:mt-16 border-t border-border/40" />
             )}
-          </m.div>
+          </Reveal>
         ))}
       </div>
     </section>
