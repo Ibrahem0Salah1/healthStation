@@ -74,6 +74,7 @@ function MobileSheet() {
               <SheetClose
                 key={clinic.href}
                 nativeButton={false}
+                className={'flex items-center justify-between'}
                 render={
                   <Link
                     href={clinic.href}
@@ -82,7 +83,7 @@ function MobileSheet() {
                 }
               >
                 {clinic.label}
-                <ArrowRight className="ml-auto size-4 text-muted-foreground" />
+                <ArrowRight className=" size-3.5 text-muted-foreground" />
               </SheetClose>
             ))}
           </div>
@@ -110,7 +111,6 @@ function MobileSheet() {
             }
           >
             Sign Up
-            <ArrowRight className="size-3.5" />
           </SheetClose>
         </SheetFooter>
       </SheetContent>
